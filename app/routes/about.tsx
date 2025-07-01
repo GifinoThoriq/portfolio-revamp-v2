@@ -29,39 +29,39 @@ export default function About() {
   const circleRef = useRef(null);
   const imageRef = useRef(null);
 
-  useEffect(() => {
-    gsap.registerPlugin(SplitText)
+  // useEffect(() => {
+  //   gsap.registerPlugin(SplitText)
 
-    const splitTitle = SplitText.create(titleRef.current, {
-      type: "words, lines",
-      linesClass: "line",
-      autoSplit: true,
-      mask: 'lines',
-    })
+  //   const splitTitle = SplitText.create(titleRef.current, {
+  //     type: "words, lines",
+  //     linesClass: "line",
+  //     autoSplit: true,
+  //     mask: 'lines',
+  //   })
 
-    const ctx = gsap.context(() => {
-      gsap.from(splitTitle.lines, {
-        duration: 2,
-        x: -500,
-        stagger: 0.1,
-        delay: 0.5,
-        ease: "expo.out"
-      })
+  //   const ctx = gsap.context(() => {
+  //     gsap.from(splitTitle.lines, {
+  //       duration: 2,
+  //       x: -500,
+  //       stagger: 0.1,
+  //       delay: 0.5,
+  //       ease: "expo.out"
+  //     })
 
-      gsap.from(circleRef.current, {
-        duration: 2,
-        rotate: -180
-      })
+  //     gsap.from(circleRef.current, {
+  //       duration: 2,
+  //       rotate: -180
+  //     })
 
-      gsap.from(imageRef.current, {
-        duration: 2,
-        x: -200,
-        ease: "expo.out",
-        opacity: 0
-      })
-    }, [splitTitle, circleRef.current])
-    return () => ctx.revert()
-  },[])
+  //     gsap.from(imageRef.current, {
+  //       duration: 2,
+  //       x: -200,
+  //       ease: "expo.out",
+  //       opacity: 0
+  //     })
+  //   }, [splitTitle, circleRef.current])
+  //   return () => ctx.revert()
+  // },[])
 
   return (
     <div className="max-w-7xl mx-auto">
