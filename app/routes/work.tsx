@@ -96,49 +96,49 @@ export default function Work(){
 
     const marqueeTween = useRef<gsap.core.Tween>();
 
-    // useEffect(() => {
-    //     const ctx = gsap.context(() => {
-    //       const marqueeElements = document.querySelectorAll(".marquee-item");
-    //       const totalWidth =
-    //         marqueeElements[0].clientWidth * (marqueeElements.length / 2);
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+          const marqueeElements = document.querySelectorAll(".marquee-item");
+          const totalWidth =
+            marqueeElements[0].clientWidth * (marqueeElements.length / 2);
     
-    //       // ✅ Create marquee tween and store it in a ref
-    //       marqueeTween.current = gsap.to(titleRef.current, {
-    //         x: -totalWidth,
-    //         duration: 60, // base duration
-    //         ease: "none",
-    //         repeat: -1,
-    //       });
+          // ✅ Create marquee tween and store it in a ref
+          marqueeTween.current = gsap.to(titleRef.current, {
+            x: -totalWidth,
+            duration: 60, // base duration
+            ease: "none",
+            repeat: -1,
+          });
     
-    //       // ✅ Circle rotation (optional)
-    //       gsap.to(circleRef.current, {
-    //         rotation: "-=360",
-    //         duration: 12,
-    //         ease: "none",
-    //         repeat: -1,
-    //         transformOrigin: "center center",
-    //       });
+          // ✅ Circle rotation (optional)
+          gsap.to(circleRef.current, {
+            rotation: "-=360",
+            duration: 12,
+            ease: "none",
+            repeat: -1,
+            transformOrigin: "center center",
+          });
     
-    //       // ✅ Update marquee speed on scroll
-    //       const handleScroll = () => {
-    //         const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    //         const maxSpeed = 4;   // 4x speed
-    //         const baseSpeed = 1;  // 1x speed
-    //         const speedFactor = Math.min(maxSpeed, baseSpeed + scrollTop / 100);
+          // ✅ Update marquee speed on scroll
+          const handleScroll = () => {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const maxSpeed = 4;   // 4x speed
+            const baseSpeed = 1;  // 1x speed
+            const speedFactor = Math.min(maxSpeed, baseSpeed + scrollTop / 100);
     
-    //         marqueeTween.current?.timeScale(speedFactor);
-    //       };
+            marqueeTween.current?.timeScale(speedFactor);
+          };
     
-    //       window.addEventListener("scroll", handleScroll);
+          window.addEventListener("scroll", handleScroll);
 
-    //       return () => {
-    //         window.removeEventListener("scroll", handleScroll);
-    //         ctx.revert();
-    //       };
+          return () => {
+            window.removeEventListener("scroll", handleScroll);
+            ctx.revert();
+          };
 
-    //     }, titleRef);
+        }, titleRef);
     
-    //   }, []);
+      }, []);
 
     return(
         <div>

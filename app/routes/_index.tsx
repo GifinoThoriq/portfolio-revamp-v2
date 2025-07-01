@@ -121,99 +121,99 @@ export default function Index() {
   // const [windowWidth, setWindowWidth] = useState<number | null>(null);
 
   //ANIMATION
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   gsap.registerPlugin(SplitText);
-  //   gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(SplitText);
+    gsap.registerPlugin(ScrollTrigger);
 
-  //   const splitText1 = SplitText.create(textRef1.current, {
-  //     type: "words, lines",
-  //     linesClass: "line",
-  //     autoSplit: true,
-  //     mask: 'lines',
-  //   })
+    const splitText1 = SplitText.create(textRef1.current, {
+      type: "words, lines",
+      linesClass: "line",
+      autoSplit: true,
+      mask: 'lines',
+    })
 
-  //   const splitText2 = SplitText.create(textRef2.current, {
-  //     type: "words, lines",
-  //     linesClass: "line",
-  //     autoSplit: true,
-  //     mask: 'lines',
-  //   })
+    const splitText2 = SplitText.create(textRef2.current, {
+      type: "words, lines",
+      linesClass: "line",
+      autoSplit: true,
+      mask: 'lines',
+    })
 
-  //   const splitText3 = SplitText.create([textRef3.current, textRef4.current], {
-  //     type: "words, lines",
-  //     linesClass: "line",
-  //     autoSplit: true,
-  //     mask: 'lines',
-  //   })
+    const splitText3 = SplitText.create([textRef3.current, textRef4.current], {
+      type: "words, lines",
+      linesClass: "line",
+      autoSplit: true,
+      mask: 'lines',
+    })
 
-  //   const ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
 
-  //     gsap.from(descRef.current, {
-  //       scrollTrigger: {
-  //         trigger: descContainerRef.current,
-  //         start: "top 80%",
-  //       },
-  //       duration: 2,
-  //       y: -100,
-  //       opacity: 0,
-  //       ease: "expo.out",
-  //     })
+      gsap.from(descRef.current, {
+        scrollTrigger: {
+          trigger: descContainerRef.current,
+          start: "top 80%",
+        },
+        duration: 2,
+        y: -100,
+        opacity: 0,
+        ease: "expo.out",
+      })
 
-  //     gsap.from(circleRef.current, {
-  //       duration: 1,
-  //       rotate: 60
-  //     })
+      gsap.from(circleRef.current, {
+        duration: 1,
+        rotate: 60
+      })
 
-  //     gsap.from(arrowRef.current, {
-  //       y:60,
-  //       opacity:0,
-  //       delay: 0.6,
-  //       duration: 0.5,
-  //     })
+      gsap.from(arrowRef.current, {
+        y:60,
+        opacity:0,
+        delay: 0.6,
+        duration: 0.5,
+      })
 
-  //     gsap.from(splitText1.lines, {
-  //       duration: 1,
-  //       y: 200,
-  //       opacity: 1,
-  //       delay: 0.2,
-  //       ease: "expo.out",
-  //     });
+      gsap.from(splitText1.lines, {
+        duration: 1,
+        y: 200,
+        opacity: 1,
+        delay: 0.2,
+        ease: "expo.out",
+      });
 
-  //     gsap.from(splitText2.lines, {
-  //       duration: 1,
-  //       y: 200,
-  //       opacity: 1,
-  //       delay: 0.5,
-  //       ease: "expo.out",
-  //     });
+      gsap.from(splitText2.lines, {
+        duration: 1,
+        y: 200,
+        opacity: 1,
+        delay: 0.5,
+        ease: "expo.out",
+      });
 
-  //     gsap.from(splitText3.lines, {
-  //       duration: 1,
-  //       y: 200,
-  //       opacity: 1,
-  //       delay: 0.6,
-  //       ease: "expo.out",
-  //     });
+      gsap.from(splitText3.lines, {
+        duration: 1,
+        y: 200,
+        opacity: 1,
+        delay: 0.6,
+        ease: "expo.out",
+      });
 
-  //     if (!videoContainerRef.current) return;
+      if (!videoContainerRef.current) return;
 
-  //     gsap.to(videoContainerRef.current, {
-  //       paddingLeft: 12,
-  //       paddingRight: 12,
-  //       ease: "none",
-  //       scrollTrigger: {
-  //         trigger: videoContainerRef.current,
-  //         start: "top bottom",   // animation starts when container hits bottom of viewport
-  //         end: "top top",        // animation ends when container hits top of viewport
-  //         scrub: true,           // smooth scroll animation
-  //       },
-  //     });
+      gsap.to(videoContainerRef.current, {
+        paddingLeft: 12,
+        paddingRight: 12,
+        ease: "none",
+        scrollTrigger: {
+          trigger: videoContainerRef.current,
+          start: "top bottom",   // animation starts when container hits bottom of viewport
+          end: "top top",        // animation ends when container hits top of viewport
+          scrub: true,           // smooth scroll animation
+        },
+      });
 
-  //   }, [containerRef, descContainerRef, videoContainerRef]);
+    }, [containerRef, descContainerRef, videoContainerRef]);
 
-  //   return () => ctx.revert(); // clean up on unmount
-  // }, []);
+    return () => ctx.revert(); // clean up on unmount
+  }, []);
 
   // const width = useWindowWidth();
 
