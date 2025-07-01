@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
+import { useWindowWidth } from "~/hooks/useWindowWidth";
 
 interface IWorkData{
   works: {
@@ -117,109 +118,109 @@ export default function Index() {
 
   const videoContainerRef = useRef(null);
 
-  // const [windowWidth, setWindowWidth] = useState<number | null>(null);
+  const [windowWidth, setWindowWidth] = useState<number | null>(null);
 
   //ANIMATION
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   gsap.registerPlugin(SplitText);
-  //   gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(SplitText);
+    gsap.registerPlugin(ScrollTrigger);
 
-  //   const splitText1 = SplitText.create(textRef1.current, {
-  //     type: "words, lines",
-  //     linesClass: "line",
-  //     autoSplit: true,
-  //     mask: 'lines',
-  //   })
+    const splitText1 = SplitText.create(textRef1.current, {
+      type: "words, lines",
+      linesClass: "line",
+      autoSplit: true,
+      mask: 'lines',
+    })
 
-  //   const splitText2 = SplitText.create(textRef2.current, {
-  //     type: "words, lines",
-  //     linesClass: "line",
-  //     autoSplit: true,
-  //     mask: 'lines',
-  //   })
+    const splitText2 = SplitText.create(textRef2.current, {
+      type: "words, lines",
+      linesClass: "line",
+      autoSplit: true,
+      mask: 'lines',
+    })
 
-  //   const splitText3 = SplitText.create([textRef3.current, textRef4.current], {
-  //     type: "words, lines",
-  //     linesClass: "line",
-  //     autoSplit: true,
-  //     mask: 'lines',
-  //   })
+    const splitText3 = SplitText.create([textRef3.current, textRef4.current], {
+      type: "words, lines",
+      linesClass: "line",
+      autoSplit: true,
+      mask: 'lines',
+    })
 
-  //   const ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
 
-  //     gsap.from(descRef.current, {
-  //       scrollTrigger: {
-  //         trigger: descContainerRef.current,
-  //         start: "top 80%",
-  //       },
-  //       duration: 2,
-  //       y: -100,
-  //       opacity: 0,
-  //       ease: "expo.out",
-  //     })
+      gsap.from(descRef.current, {
+        scrollTrigger: {
+          trigger: descContainerRef.current,
+          start: "top 80%",
+        },
+        duration: 2,
+        y: -100,
+        opacity: 0,
+        ease: "expo.out",
+      })
 
-  //     gsap.from(circleRef.current, {
-  //       duration: 1,
-  //       rotate: 60
-  //     })
+      gsap.from(circleRef.current, {
+        duration: 1,
+        rotate: 60
+      })
 
-  //     gsap.from(arrowRef.current, {
-  //       y:60,
-  //       opacity:0,
-  //       delay: 0.6,
-  //       duration: 0.5,
-  //     })
+      gsap.from(arrowRef.current, {
+        y:60,
+        opacity:0,
+        delay: 0.6,
+        duration: 0.5,
+      })
 
-  //     gsap.from(splitText1.lines, {
-  //       duration: 1,
-  //       y: 200,
-  //       opacity: 1,
-  //       delay: 0.2,
-  //       ease: "expo.out",
-  //     });
+      gsap.from(splitText1.lines, {
+        duration: 1,
+        y: 200,
+        opacity: 1,
+        delay: 0.2,
+        ease: "expo.out",
+      });
 
-  //     gsap.from(splitText2.lines, {
-  //       duration: 1,
-  //       y: 200,
-  //       opacity: 1,
-  //       delay: 0.5,
-  //       ease: "expo.out",
-  //     });
+      gsap.from(splitText2.lines, {
+        duration: 1,
+        y: 200,
+        opacity: 1,
+        delay: 0.5,
+        ease: "expo.out",
+      });
 
-  //     gsap.from(splitText3.lines, {
-  //       duration: 1,
-  //       y: 200,
-  //       opacity: 1,
-  //       delay: 0.6,
-  //       ease: "expo.out",
-  //     });
+      gsap.from(splitText3.lines, {
+        duration: 1,
+        y: 200,
+        opacity: 1,
+        delay: 0.6,
+        ease: "expo.out",
+      });
 
-  //     if (!videoContainerRef.current) return;
+      if (!videoContainerRef.current) return;
 
-  //     gsap.to(videoContainerRef.current, {
-  //       paddingLeft: 12,
-  //       paddingRight: 12,
-  //       ease: "none",
-  //       scrollTrigger: {
-  //         trigger: videoContainerRef.current,
-  //         start: "top bottom",   // animation starts when container hits bottom of viewport
-  //         end: "top top",        // animation ends when container hits top of viewport
-  //         scrub: true,           // smooth scroll animation
-  //       },
-  //     });
+      gsap.to(videoContainerRef.current, {
+        paddingLeft: 12,
+        paddingRight: 12,
+        ease: "none",
+        scrollTrigger: {
+          trigger: videoContainerRef.current,
+          start: "top bottom",   // animation starts when container hits bottom of viewport
+          end: "top top",        // animation ends when container hits top of viewport
+          scrub: true,           // smooth scroll animation
+        },
+      });
 
-  //   }, [containerRef, descContainerRef, videoContainerRef]);
+    }, [containerRef, descContainerRef, videoContainerRef]);
 
-  //   return () => ctx.revert(); // clean up on unmount
-  // }, []);
+    return () => ctx.revert(); // clean up on unmount
+  }, [windowWidth]);
 
-  // const width = useWindowWidth();
+  const width = useWindowWidth();
 
   // //width handler
-  // useEffect(() => {
-  //   width !== null ? setWindowWidth(width) : setWindowWidth(null);
-  // },[width])
+  useEffect(() => {
+    width !== null ? setWindowWidth(width) : setWindowWidth(null);
+  },[width])
 
 
 
@@ -244,7 +245,7 @@ export default function Index() {
 
       {/* SLIGHT PORTFOLIO */}
 
-      {/* {windowWidth !== null && windowWidth >= 768 
+      {windowWidth !== null && windowWidth >= 768 
         ? 
         <>
           <div ref={videoContainerRef} className="px-48 flex items-start justify-start z-10 relative">
@@ -275,7 +276,7 @@ export default function Index() {
             </video>
           </div>
         </>
-      } */}
+      }
 
       <div ref={descContainerRef} className="px-4 my-12 flex z-0">
         <p ref={descRef} className="md:text-xl text-lg md:w-[60%]" style={{lineHeight: '28px'}}>I'm a frontend-focused Software Engineer with solid experience in both web and mobile projects. I care about writing clean code, building user-friendly interfaces, and creating things that work well and scale. I enjoy collaborating with others and always try to keep learning and improving.</p>
