@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
 
 export function useWindowWidth() {
-  const windowWidth = 1;
-  // const [windowWidth, setWindowWidth] = useState<number | null>(null);
+  const [windowWidth, setWindowWidth] = useState<number>(() => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth;
+    }
+    return 0; // Default value during SSR
+  });
 
-  // useEffect(() => {
-  //   // This code only runs on the client
-  //   const handleResize = () => setWindowWidth(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
 
-  //   handleResize(); // Initial set
+    // Set on mount
+    handleResize();
 
-  //   window.addEventListener("resize", handleResize);
-  //   return () => window.removeEventListener("resize", handleResize);
-  // }, []);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return windowWidth;
 }
